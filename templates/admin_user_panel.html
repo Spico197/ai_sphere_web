@@ -1,0 +1,23 @@
+{% extends 'user_panel.html' %}
+{% block content %}
+  <div class="container">
+    <h3>管理员：{{ user.username }} - id：{{ user.stu_id }}</h3>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <a href="/admin/">进入后台管理界面</a>
+      </li>
+      <li class="list-group-item">
+        <a href="{% url 'user_load_in' %}">导入用户</a>
+      </li>
+      <li class="list-group-item">
+        <a href="{% url 'user_mutual_evaluaiton_init' %}">作业互评初始化</a>
+      </li>
+      <li class="list-group-item">
+        <a href="{% url 'user_report_generation_init' %}">准备参与报告</a>
+      </li>
+      <li class="list-group-item">
+        <a href="{% url 'user_certificate_download_init' %}">准备参与证书</a>
+      </li>
+    </ul>
+  </div>
+{% endblock %}

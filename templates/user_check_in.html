@@ -1,0 +1,53 @@
+{% extends 'user_panel.html' %}
+{% block content %}
+  <div class="container">
+    <h3>微信号：{{ user.username }} - 学号：{{ user.stu_id }}</h3>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <p>
+          算上今天，活动已经开始：<strong>{{ activity_days }}</strong> 天，您已打卡：<strong>{{ check_in_days }}</strong>
+          天，打卡率：<strong>{{ check_in_rate }}</strong>，打卡率排名第 <strong>{{ check_in_ranking }}</strong> 位。
+        </p>
+      </li>
+      <li class="list-group-item">
+        <p>
+          <a href="https://zhuanlan.zhihu.com/c_1059141282965864448" target="_blank">
+            经验总结分享专栏
+          </a>
+        </p>
+        <p>请各位大佬在知乎写好文章后向此专栏投稿，并在评论区或文章正文附上自己的学号。</p>
+        <p>我们将会以知乎文章点赞量计算最终的好评成绩部分。</p>
+      </li>
+      <li class="list-group-item">
+        <h4>{{ instruction }}</h4>
+        <form method="post" class="form-horizontal" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="score" class="col-sm-2 control-label">线上成绩（必填）</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="score" placeholder="线上成绩" name="score" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="share_url" class="col-sm-2 control-label">经验总结分享URL</label>
+            <div class="col-sm-10">
+              <input type="url" class="form-control" id="share_url" placeholder="经验总结分享URL" name="share_url">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="screen_paste" class="col-sm-2 control-label">成绩截图（必填）</label>
+            <div class="col-sm-10">
+              <input type="file" id="screen_paste" name="screen_paste">
+              <p class="help-block">支持*.(jpg | jpeg | png)</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" class="btn btn-default">打卡</button>
+            </div>
+          </div>
+        </form>
+      </li>
+    </ul>
+  </div>
+{% endblock %}

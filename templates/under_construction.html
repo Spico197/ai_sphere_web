@@ -1,0 +1,8 @@
+{% extends 'user_panel.html' %}
+{% block content %}
+  <div class="container">
+    <h3>username：{{ user.username }} - id：{{ user.stu_id }}</h3>
+    <h4 style="text-align: center">该功能正在建设之中</h4>
+    <a href="{% url 'user_index' %}">返回主页</a>
+  </div>
+{% endblock %}

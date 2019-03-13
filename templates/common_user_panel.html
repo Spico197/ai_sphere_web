@@ -1,0 +1,20 @@
+{% extends 'user_panel.html' %}
+{% block content %}
+  <div class="container">
+    <h3>微信号：{{ user.username }} - 学号：{{ user.stu_id }}</h3>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <a href="{% url 'user_check_in' %}">打卡工具</a>
+      </li>
+      <li class="list-group-item">
+        <a href="{% url 'user_mutual_evaluaiton' %}">作业互评</a>
+      </li>
+      <li class="list-group-item">
+        <a href="{% url 'user_report_generation' %}">生成参与报告</a>
+      </li>
+      <li class="list-group-item">
+        <a href="{% url 'user_certificate_download' %}">下载参与证书</a>
+      </li>
+    </ul>
+  </div>
+{% endblock %}
